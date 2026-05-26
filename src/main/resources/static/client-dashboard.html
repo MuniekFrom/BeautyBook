@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel klienta | Pracownia Urody Hola</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Pracownia Urody Hola</div>
+
+    <nav>
+        <a href="/index.html">Strona główna</a>
+        <a href="/index.html#services">Oferta</a>
+        <button class="logout-button" id="logout-button">Wyloguj</button>
+    </nav>
+</header>
+
+<main class="dashboard">
+    <section class="dashboard-hero">
+        <p class="subtitle">Panel klienta</p>
+        <h1>Umów swoją wizytę</h1>
+        <p id="client-login" class="dashboard-text"></p>
+    </section>
+
+    <section class="dashboard-grid">
+
+        <div class="dashboard-card">
+            <h2>Zarezerwuj wizytę</h2>
+            <p>Najpierw wybierz usługę, a potem zobaczysz tylko pasujące terminy.</p>
+
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="serviceSelect">Usługa</label>
+                    <select id="serviceSelect" required>
+                        <option value="">Ładowanie usług...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="slotSelect">Dostępny termin</label>
+                    <select id="slotSelect" required>
+                        <option value="">Najpierw wybierz usługę</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notatka do wizyty</label>
+                    <textarea id="notes" rows="4" placeholder="Np. proszę o naturalny efekt"></textarea>
+                </div>
+
+                <button type="submit" class="btn primary full-width">Umów wizytę</button>
+                <p id="booking-message"></p>
+            </form>
+        </div>
+
+        <div class="dashboard-card wide-card">
+            <h2>Moje wizyty</h2>
+            <p>Twoje aktualne i wcześniejsze rezerwacje.</p>
+
+            <div id="appointments-container" class="list-container">
+                <p>Ładowanie wizyt...</p>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Dostępne terminy</h2>
+            <p>Terminy są filtrowane według wybranej usługi.</p>
+
+            <div id="slots-preview" class="list-container">
+                <p>Wybierz usługę, aby zobaczyć pasujące terminy.</p>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<script src="/js/client-dashboard.js"></script>
+</body>
+</html>

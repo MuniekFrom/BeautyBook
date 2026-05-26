@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel admina | Pracownia Urody Hola</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Pracownia Urody Hola</div>
+
+    <nav>
+        <a href="/index.html">Strona główna</a>
+        <a href="/index.html#services">Oferta</a>
+        <button class="logout-button" id="logout-button">Wyloguj</button>
+    </nav>
+</header>
+
+<main class="dashboard">
+    <section class="dashboard-hero">
+        <p class="subtitle">Panel administratora</p>
+        <h1>Zarządzanie pracownią</h1>
+        <p id="admin-login" class="dashboard-text"></p>
+    </section>
+
+    <section class="stats-grid">
+        <div class="stat-card">
+            <span>Usługi</span>
+            <strong id="services-count">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Pracownicy</span>
+            <strong id="employees-count">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Wszystkie wizyty</span>
+            <strong id="appointments-count">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Zarezerwowane</span>
+            <strong id="booked-count">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Wykonane</span>
+            <strong id="completed-count">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Anulowane</span>
+            <strong id="cancelled-count">0</strong>
+        </div>
+    </section>
+
+    <section class="dashboard-grid">
+
+        <div class="dashboard-card">
+            <h2>Dodaj kategorię</h2>
+
+            <form id="category-form">
+                <div class="form-group">
+                    <label for="categoryName">Nazwa kategorii</label>
+                    <input type="text" id="categoryName" placeholder="np. Makijaż, Masaż, Depilacja" required>
+                </div>
+
+                <button type="submit" class="btn primary full-width">Dodaj kategorię</button>
+                <p id="category-message"></p>
+            </form>
+        </div>
+
+        <div class="dashboard-card">
+            <h2 id="service-form-title">Dodaj usługę</h2>
+
+            <form id="service-form">
+                <input type="hidden" id="serviceId">
+
+                <div class="form-group">
+                    <label for="serviceName">Nazwa usługi</label>
+                    <input type="text" id="serviceName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="serviceDescription">Opis</label>
+                    <textarea id="serviceDescription" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="servicePrice">Cena</label>
+                    <input type="number" id="servicePrice" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="durationMinutes">Czas trwania w minutach</label>
+                    <input type="number" id="durationMinutes" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Kategoria usługi</label>
+                    <select id="category" required>
+                        <option value="">Ładowanie kategorii...</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="service-submit-button" class="btn primary full-width">
+                    Dodaj usługę
+                </button>
+
+                <button type="button"
+                        id="service-cancel-edit-button"
+                        class="btn secondary full-width"
+                        style="display:none; margin-top: 10px;">
+                    Anuluj edycję
+                </button>
+
+                <p id="service-message"></p>
+            </form>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Dodaj pracownika</h2>
+
+            <form id="employee-full-form">
+                <div class="form-group">
+                    <label for="employeeLogin">Login pracownika</label>
+                    <input type="text" id="employeeLogin" placeholder="np. julia@hola.pl" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="employeePassword">Hasło</label>
+                    <input type="password" id="employeePassword" placeholder="Minimum 4 znaki" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="employeeFirstName">Imię</label>
+                    <input type="text" id="employeeFirstName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="employeeLastName">Nazwisko</label>
+                    <input type="text" id="employeeLastName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="employeeSpecialization">Specjalizacja</label>
+                    <input type="text" id="employeeSpecialization" placeholder="np. Stylizacja paznokci" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="employeeCategory">Kategoria usług pracownika</label>
+                    <select id="employeeCategory" required>
+                        <option value="">Ładowanie kategorii...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="employeeDescription">Opis</label>
+                    <textarea id="employeeDescription" rows="4" placeholder="Krótki opis pracownika"></textarea>
+                </div>
+
+                <button type="submit" class="btn primary full-width">Dodaj pracownika</button>
+                <p id="employee-full-message"></p>
+            </form>
+        </div>
+
+    </section>
+
+    <section class="dashboard-grid dashboard-section">
+
+        <div class="dashboard-card">
+            <h2>Lista kategorii</h2>
+
+            <div id="admin-categories-container" class="list-container">
+                <p>Ładowanie kategorii...</p>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Lista kont użytkowników</h2>
+
+            <div id="admin-users-container" class="list-container">
+                <p>Ładowanie użytkowników...</p>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Lista usług</h2>
+
+            <div id="admin-services-container" class="list-container">
+                <p>Ładowanie usług...</p>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Lista pracowników</h2>
+
+            <div id="admin-employees-container" class="list-container">
+                <p>Ładowanie pracowników...</p>
+            </div>
+        </div>
+
+        <div class="dashboard-card wide-card">
+            <h2>Terminy i wizyty</h2>
+
+            <div class="filter-buttons">
+                <button class="filter-button active" data-filter="ALL">Wszystkie</button>
+                <button class="filter-button" data-filter="BOOKED">Zarezerwowane</button>
+                <button class="filter-button" data-filter="COMPLETED">Wykonane</button>
+                <button class="filter-button" data-filter="CANCELLED">Anulowane</button>
+                <button class="filter-button" data-filter="AVAILABLE">Wolne terminy</button>
+            </div>
+
+            <div id="admin-appointments-container" class="list-container">
+                <p>Ładowanie wizyt...</p>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<script src="/js/admin-dashboard.js"></script>
+</body>
+</html>

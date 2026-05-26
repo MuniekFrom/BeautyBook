@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja | Pracownia Urody Hola</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-page">
+
+<header class="navbar">
+    <div class="logo">Pracownia Urody Hola</div>
+
+    <nav>
+        <a href="/index.html">Strona główna</a>
+        <a href="/index.html#services">Oferta</a>
+        <a href="/login.html" class="nav-button">Zaloguj się</a>
+    </nav>
+</header>
+
+<main class="auth-container">
+    <div class="auth-card">
+        <p class="subtitle">Nowe konto</p>
+        <h1>Zarejestruj się</h1>
+
+        <p class="auth-text">
+            Utwórz konto klientki, aby umawiać wizyty online w Pracowni Urody Hola.
+        </p>
+
+        <form id="register-form">
+            <div class="form-group">
+                <label for="login">Email / login</label>
+                <input type="text" id="login" placeholder="np. klientka@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Hasło</label>
+                <input type="password" id="password" placeholder="Wpisz hasło" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Powtórz hasło</label>
+                <input type="password" id="confirmPassword" placeholder="Powtórz hasło" required>
+            </div>
+
+            <button type="submit" class="btn primary full-width">Utwórz konto</button>
+
+            <p id="register-message"></p>
+        </form>
+
+        <p class="auth-footer-text">
+            Masz już konto? <a href="/login.html">Zaloguj się</a>
+        </p>
+    </div>
+</main>
+
+<script src="/js/register.js"></script>
+</body>
+</html>

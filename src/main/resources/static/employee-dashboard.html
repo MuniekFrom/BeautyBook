@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel pracownika | Pracownia Urody Hola</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Pracownia Urody Hola</div>
+
+    <nav>
+        <a href="/index.html">Strona główna</a>
+        <button class="logout-button" id="logout-button">Wyloguj</button>
+    </nav>
+</header>
+
+<main class="dashboard">
+    <section class="dashboard-hero">
+        <p class="subtitle">Panel pracownika</p>
+        <h1>Twój grafik i wizyty</h1>
+        <p id="employee-login" class="dashboard-text"></p>
+    </section>
+
+    <section class="dashboard-grid">
+
+        <div class="dashboard-card">
+            <h2>Dodaj wolny termin</h2>
+            <p>Wybierz godzinę rozpoczęcia. Czas trwania wizyty zostanie obliczony na podstawie wybranej usługi.</p>
+
+            <form id="slot-form">
+                <div class="form-group">
+                    <label for="startTime">Początek terminu</label>
+                    <input type="datetime-local" id="startTime" required>
+                </div>
+
+                <button type="submit" class="btn primary full-width">Dodaj termin</button>
+                <p id="slot-message"></p>
+            </form>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Moje terminy</h2>
+            <p>Lista Twoich wolnych i zarezerwowanych terminów.</p>
+
+            <div id="employee-slots-container" class="list-container">
+                <p>Ładowanie terminów...</p>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Zmiana hasła</h2>
+            <p>Zmień hasło do swojego konta pracownika.</p>
+
+            <form id="change-password-form">
+                <div class="form-group">
+                    <label for="currentPassword">Aktualne hasło</label>
+                    <input type="password" id="currentPassword" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="newPassword">Nowe hasło</label>
+                    <input type="password" id="newPassword" required>
+                </div>
+
+                <button type="submit" class="btn primary full-width">Zmień hasło</button>
+                <p id="password-message"></p>
+            </form>
+        </div>
+
+    </section>
+
+    <section class="dashboard-grid dashboard-section">
+
+        <div class="dashboard-card wide-card">
+            <h2>Moje wizyty</h2>
+            <p>Lista wizyt zapisanych do Ciebie.</p>
+
+            <div id="employee-appointments-container" class="list-container">
+                <p>Ładowanie wizyt...</p>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Informacje</h2>
+            <p>
+                Dodajesz tylko godzinę rozpoczęcia terminu. Długość wizyty zależy od usługi wybranej przez klientkę.
+            </p>
+        </div>
+
+    </section>
+</main>
+
+<script src="/js/employee-dashboard.js"></script>
+</body>
+</html>

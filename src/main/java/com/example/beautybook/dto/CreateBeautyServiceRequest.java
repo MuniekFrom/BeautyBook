@@ -1,0 +1,70 @@
+package com.example.beautybook.dto;
+
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import java.math.BigDecimal;
+
+public class CreateBeautyServiceRequest {
+
+    @NotBlank(message = "Service name is required")
+    private String name;
+
+    private String description;
+
+    @NotNull(message = "Service price is required")
+    @DecimalMin(value = "0.01", message = "Service price must be greater than 0")
+    private BigDecimal price;
+
+    @NotNull(message = "Duration is required")
+    @Min(value = 1, message = "Duration must be at least 1 minute")
+    private Integer durationMinutes;
+
+    @NotNull(message = "Category id is required")
+    private Long categoryId;
+
+    public CreateBeautyServiceRequest() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public Integer getDurationMinutes() {
+        return durationMinutes;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setDurationMinutes(Integer durationMinutes) {
+        this.durationMinutes = durationMinutes;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+}
